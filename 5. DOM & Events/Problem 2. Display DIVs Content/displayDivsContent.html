@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Display Divs Content</title>
+</head>
+<body>
+<div>first div</div>
+<div>second div</div>
+<div class="empty"></div>
+<div>third div<div>inner div</div></div>
+<ul id="result"></ul>
+<script>
+    var result = document.getElementById('result');
+    var elements = document.getElementsByTagName('div');
+
+    for(i = 0; i < elements.length; i++) {
+        var div = elements[i];
+        if (div.getAttribute("class") != "empty") {
+            result.appendChild(convertToListItem(div));
+        }
+    }
+    function convertToListItem(divElement) {
+        var listItem = document.createElement("li");
+        listItem.innerText = divElement.innerText;
+        return listItem;
+    }
+</script>
+</body>
+</html>
